@@ -1,0 +1,725 @@
+@use 'utilities';
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+body {
+	font-family: 'Montserrat', 'Raleway' sans-serif;
+	background-color: #fff;
+	font-size: 1.6rem;
+}
+section {
+	scroll-margin: 8vh;
+}
+li {
+	list-style: none;
+}
+// stałe wlasciwosci => wrzucic je do jakiegos mixina
+.section {
+	padding: 6rem 0;
+}
+.wrapper {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+}
+
+h2 {
+	font-size: 4.4rem;
+	text-align: center;
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+.navbar {
+	position: fixed;
+	width: 100%;
+	height: 10vh;
+	background-color: #fff;
+	z-index: 5;
+	border-bottom: 0.2px solid black;
+
+	div.wrapper {
+		display: flex;
+		width: 100%;
+		height: 100%;
+		justify-content: space-between;
+		align-items: center;
+		overflow: hidden;
+
+		//czy ten overflow powinien byc tutaj czy w navie? ja nie potrafie znalezc roznicy...
+	}
+	a {
+		color: #000;
+		text-decoration: none;
+	}
+	&__logo {
+		font-family: 'raleway';
+
+		i {
+			color: #414141;
+		}
+		a {
+			margin-left: 1rem;
+			cursor: pointer;
+		}
+	}
+	&__links {
+		display: flex;
+
+		a {
+			padding: 5rem 3rem;
+			font-size: 2rem;
+		}
+		a:hover {
+			color: #fff;
+			background-color: #000;
+		}
+	}
+
+	&__burger {
+		display: none;
+		padding: 0.4rem 0.8rem;
+		font-size: 3rem;
+		cursor: pointer;
+	}
+}
+
+//MENU FOR MOBILES
+.mobile-menu {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	top: 10vh;
+	right: 0;
+	width: 50%;
+	height: 0;
+	background-color: #ffffff3b;
+	border-radius: 15px;
+	backdrop-filter: blur(9px);
+	overflow: hidden;
+	transition: height 0.5s;
+
+	a {
+		border-bottom: 2.5px solid green;
+		padding: 1rem 2rem;
+		font-size: 2rem;
+		color: #000;
+		text-decoration: none;
+	}
+}
+.active {
+	position: fixed;
+	height: 70vh;
+}
+
+//FIRST SECTION - HEADER IMG WITH H1
+header {
+	height: 60vh;
+	background-image: url('../../dist/img/h1sekcjaLow.jpg');
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+
+	.header__hero-img {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+}
+
+//SECOND SECTION = ABOUTUS
+.aboutus {
+	font-family: 'Montserrat' sans-serif;
+	img {
+		width: 530px;
+	}
+	&__box {
+		display: flex;
+
+		&--text {
+			flex-direction: column;
+
+			h3 {
+				font-size: 2.8rem;
+				padding-bottom: 3rem;
+			}
+			p {
+				font-size: 1.8rem;
+				line-height: 3.5rem;
+			}
+		}
+	}
+}
+//hero img section (section #3)
+.hero__image {
+	height: 40vh;
+	background-image: url('../../dist/img/bgcLOW.jpg');
+	background-size: cover;
+	background-position: center;
+
+	&--shadow {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 10, 05, 0.3);
+		z-index: -5;
+	}
+
+	&--oblong {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 auto;
+		width: 80%;
+		height: 15vh;
+		border: 1px solid white;
+	}
+	h2 {
+		width: 100%;
+		text-transform: none;
+		color: #fff;
+		font-weight: 500;
+	}
+}
+
+//OFFER SECTION
+.offer {
+	font-family: 'Raleway' sans-serif;
+	h2 {
+		font-family: 'Montserrat' sans-serif;
+		padding-bottom: 3rem;
+	}
+	p {
+		//tutaj pownienem chyba nadac najmniejszy rozmiar czyli dla telefonow, zeby nie powtarzac fz, ktory i tak teraz powtorze w kazdym miejscu ?????????????? chyba wszedzie powinienm ustawiac fz dla telefonu, bo i tak wszedzie ustawiam w media font sizze, nawet dla 1200px+ wiec i tak powtarzam wszedzie, wiec ten font size tutaj jest bezuyteczny, a moglby byc tutaj ten dla max 500px ????
+		margin-bottom: 5rem;
+		font-size: 2.2rem;
+
+		text-align: center;
+		a {
+			color: #2ade72;
+		}
+	}
+	&__under-txt {
+		font-size: 22px;
+	}
+	&__cards {
+		padding: 0 2rem 5rem;
+		display: flex;
+		justify-content: space-evenly;
+		flex-wrap: wrap;
+		gap: 4rem 1rem;
+	}
+	&__card {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+		align-items: center;
+		width: 340px;
+		height: 440px;
+		border-radius: 8px;
+		box-shadow: 0px 1.5px 10px rgba(0, 0, 0, 0.5);
+
+		&--text {
+			margin-top: 1.5rem;
+			font-size: 3rem;
+			font-weight: 500;
+		}
+		&--price {
+			font-size: 55px;
+			font-weight: bolder;
+		}
+		&--element {
+			font-size: 2rem;
+			margin-bottom: 1rem;
+			font-weight: 500;
+
+			.fa-solid {
+				font-size: 1.4rem;
+				margin-right: 1rem;
+				color: #2ade72;
+			}
+		}
+		ul .off {
+			color: grey;
+			i {
+				color: grey;
+			}
+		}
+		&--btn {
+			//czemu ten font family nie zostal przypisany z przodka? całe offer ma font family nadane wyzej....
+			font-family: 'Raleway' sans-serif;
+			margin-bottom: 1.5rem;
+			padding: 1rem 7rem;
+			font-size: 2rem;
+			font-weight: 500;
+			color: #000000b5;
+			background-color: #fff;
+			border-radius: 10px;
+			border: transparent;
+			box-shadow: 0px 1.5px 6px rgba(0, 0, 0, 0.5);
+			cursor: pointer;
+			transition: background-color 0.4s, box-shadow 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+		}
+		&--btn.choosen {
+			color: #000;
+			background-color: #2ade72;
+			box-shadow: 0px 1.5px 6px #2ade72;
+		}
+		&--btn.deactive {
+			color: 000000b5;
+			background-color: #fff;
+			box-shadow: 0px 1.5px 6px rgba(0, 0, 0, 0.5);
+		}
+
+		&--btn:hover {
+			color: #000;
+			background-color: #2ade72;
+			box-shadow: 0px 1.5px 6px #2ade72;
+		}
+	}
+}
+
+//map section
+.map {
+	font-family: 'Raleway' sans-serif;
+	background-color: #f5f5f5;
+
+	.wrapper {
+		width: 100%;
+		height: 100%;
+	}
+
+	h2 {
+		text-transform: none;
+		cursor: pointer;
+		i {
+			margin-right: 1.5rem;
+			color: #414141;
+		}
+	}
+
+	&__box {
+		margin: 0 auto;
+		padding-bottom: 1rem;
+		width: 85%;
+	}
+	&__box--right {
+		width: 100%;
+		display: flex;
+		gap: 0 4rem;
+	}
+}
+
+// footer
+.footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 8vh;
+	font-size: 1.4rem;
+}
+
+@media (max-width: 576px) {
+	.navbar {
+		padding: 0 2rem;
+		&__links {
+			display: none;
+		}
+		&__burger {
+			display: block;
+		}
+		&__logo {
+			font-size: 2.6rem;
+		}
+	}
+
+	.mobile-menu {
+		width: 100%;
+		li a {
+			font-weight: 500;
+			font-size: 3rem;
+		}
+	}
+
+	header {
+		.wrapper {
+			padding: 0 2rem;
+		}
+		.title {
+			font-size: 1.5rem;
+		}
+		.text {
+			font-size: 1.4rem;
+		}
+	}
+	.aboutus {
+		padding: 3rem 2em;
+		h2 {
+			margin-bottom: 3rem;
+			font-size: 2.8rem;
+		}
+		img {
+			width: 100%;
+		}
+		&__box {
+			flex-direction: column;
+		}
+		&__box--text {
+			h3 {
+				font-size: 1.8rem;
+				padding: 2rem 0;
+				text-align: center;
+			}
+			p {
+				font-size: 1.4rem;
+				line-height: 2rem;
+				text-align: justify;
+			}
+		}
+	}
+	.hero__image {
+		h2 {
+			font-size: 1.8rem;
+		}
+	}
+	.offer {
+		padding: 3rem 2em;
+		h2 {
+			font-size: 2.8rem;
+		}
+		p {
+			font-size: 1.6rem;
+			font-weight: 400;
+		}
+	}
+	.map {
+		padding: 0 2rem;
+		font-family: 'Raleway' sans-serif;
+		height: auto; //tuuutej IPHONE
+		background-color: #f5f5f5;
+
+		.wrapper {
+			width: 100%;
+			height: 100%;
+		}
+
+		h2 {
+			margin: 3rem 0;
+			font-size: 3.8rem;
+			text-transform: none;
+			cursor: pointer;
+			i {
+				margin-right: 1.5rem;
+				color: #414141;
+			}
+		}
+
+		&__box {
+			margin: 0 auto;
+			padding-bottom: 1rem;
+			width: 85%;
+			display: flex;
+			flex-direction: column;
+		}
+		&__box--right {
+			width: 100%;
+			display: flex;
+			flex-direction: column; //tuuutej IPHONE
+			justify-content: center;
+
+			gap: 0 4rem;
+		}
+		&__box--right-column {
+			h3 {
+				margin-bottom: 2.2rem;
+				font-size: 2.4rem;
+				font-weight: 700;
+			}
+			li {
+				margin-bottom: 2.2rem;
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+@media (min-width: 576px) {
+	.navbar {
+		padding: 0 3.5rem;
+		&__links {
+			display: none;
+		}
+		&__burger {
+			font-size: 4rem;
+			display: block;
+		}
+		&__logo {
+			font-size: 3.4rem;
+		}
+	}
+	.mobile-menu {
+		backdrop-filter: blur(15px);
+		right: 1rem;
+		overflow: hidden;
+		li a {
+			font-weight: 500;
+			font-size: 3rem;
+		}
+	}
+	header {
+		.wrapper {
+			padding: 0 3.5rem;
+		}
+		.title {
+			font-size: 2.8rem;
+		}
+		.text {
+			font-size: 2rem;
+		}
+
+		//mam wrazenie ze za duzo rzeczy powtarzam z tym wrapperem i marginem dla kazdego media
+	}
+	.aboutus {
+		padding: 4rem 3.5rem;
+		h2 {
+			margin-bottom: 4rem;
+			font-size: 3.2rem;
+		}
+		img {
+			width: 300px;
+		}
+
+		&__box--text {
+			margin-left: 3rem;
+			h3 {
+				font-size: 2rem;
+				padding-bottom: 1rem;
+			}
+			p {
+				font-size: 1.4rem;
+				line-height: 2rem;
+			}
+		}
+	}
+	.hero__image {
+		h2 {
+			font-size: 2.8rem;
+		}
+	}
+	.offer {
+		padding: 3rem 3.5em;
+		h2 {
+			font-size: 3.2rem;
+		}
+		p {
+			font-size: 1.6rem;
+			font-weight: 400;
+		}
+	}
+	.map {
+		padding: 0 3.5rem;
+		height: 35vh;
+
+		.wrapper {
+			width: 100%;
+			height: 100%;
+		}
+
+		h2 {
+			margin: 4rem 0; //tutaj
+			font-size: 3.8rem; //tutaj
+		}
+
+		&__box {
+			margin: 0 auto;
+			width: 85%;
+			height: 100%;
+			display: flex;
+			flex-direction: column; //tuutajjjjjjjjj
+		}
+		&__box--right {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: flex-start; //tutaj
+			gap: 0 4rem;
+		}
+		&__box--right-column {
+			h3 {
+				margin-bottom: 2.2rem;
+				font-size: 2.4rem; //tutaj
+				font-weight: 700;
+			}
+			li {
+				margin-bottom: 2.2rem;
+				cursor: pointer;
+			}
+		}
+	}
+}
+@media (min-width: 650px) {
+	.aboutus {
+		img {
+			width: 350px;
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.navbar {
+		&__links {
+			display: flex;
+		}
+		&__burger {
+			display: none;
+		}
+		li a.scroll {
+			color: #fff;
+			background-color: #000;
+		}
+	}
+	.active {
+		height: 0;
+	}
+
+	header {
+		.title {
+			font-size: 3.2rem;
+		}
+		.text {
+			font-size: 2.2rem;
+		}
+	}
+	.aboutus {
+		//ten padding nie szkodzi komputerom
+		padding: 6rem 3.5rem;
+		h2 {
+			//ten margin przechodzi ten na komputry
+			margin-bottom: 5rem;
+			font-size: 3.2rem;
+		}
+		img {
+			width: 450px;
+		}
+
+		&__box--text {
+			margin-left: 5rem;
+			h3 {
+				font-size: 2.2rem;
+				padding-bottom: 1.5rem;
+			}
+			p {
+				font-size: 1.4rem;
+				line-height: 2.5rem;
+			}
+		}
+	}
+	.hero__image {
+		h2 {
+			font-size: 3.8rem;
+		}
+	}
+	.offer {
+		&__cards {
+			display: flex;
+		}
+		h2 {
+			font-size: 4.4rem;
+		}
+		p {
+			font-size: 1.8rem;
+		}
+		p.offer__under-txt {
+			font-size: 2.2rem;
+		}
+	}
+	.map {
+		height: 30vh;
+		h2 {
+			font-size: 5.5rem;
+		}
+
+		&__box {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+		&__box--right {
+			width: 60%;
+			justify-content: flex-end;
+			gap: 0 5rem;
+		}
+		&__box--right-column {
+			h3 {
+				font-size: 2.6rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+	.navbar {
+		&__logo {
+			i {
+				font-size: 4.2rem;
+				color: #414141;
+			}
+			a {
+				font-size: 4.4rem;
+				margin-left: 1rem;
+				cursor: pointer;
+			}
+		}
+	}
+	header {
+		background-image: url('../../dist/img/h1sekcjaHD.jpg');
+
+		.title {
+			font-size: 4rem;
+		}
+		.text {
+			font-size: 2.2rem;
+		}
+	}
+	.aboutus {
+		img {
+			width: 530px;
+		}
+
+		h2 {
+			font-size: 4.4rem;
+		}
+		&__box--text {
+			margin-left: 7rem;
+			h3 {
+				font-size: 2.8rem;
+				padding-bottom: 3rem;
+			}
+			p {
+				font-size: 1.8rem;
+				line-height: 3.5rem;
+			}
+		}
+	}
+	.hero__image {
+		background-image: url('../../dist/img/bgcHD.jpg');
+		&--shadow {
+			background-color: rgba(0, 10, 05, 0.5);
+		}
+		h2 {
+			font-size: 4.8rem;
+		}
+	}
+}

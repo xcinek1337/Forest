@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Group | Kontakt</title>
+
+    <meta name="description" content="Skontaktuj się z nami, aby uzyskać więcej informacji. Zapraszamy do wypełnienia formularza kontaktowego. Jesteśmy gotowi odpowiedzieć na Twoje pytania.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&family=Raleway:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+
+    <script src="https://kit.fontawesome.com/cb11acf68a.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="dist/css/style.min.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="wrapper">
+            <div class="navbar__logo"><i class="fa-solid fa-tree"></i><a href="index.html">Forest</a>
+            </div>
+            <ul class="navbar__links">
+                <li><a  href="index.html#home">Home</a></li>
+                <li><a href="index.html#aboutus">O nas</a></li>
+                <li><a href="index.html#offer">Oferta</a></li>
+                <li><a class="scroll" href="contact.html">Kontakt</a></li>
+            </ul>
+            <div class="navbar__burger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="mobile-menu">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#aboutus">O nas</a></li>
+                <li><a href="index.html#offer">Oferta</a></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </div>
+        </div>
+    </nav>
+
+    <div class="background-contact">
+        <div class="background-contact-shadow">
+
+            <form class="contact">
+                <span>Napisz nam wiadomość <i class="fa-regular fa-envelope"></i></span>
+                <div class="contact-box">
+                    <label for="name">Imię:</label>
+                    <input class="input-name" type="text" id="name" name="name" required>
+                </div>
+                <div class="contact-box">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="contact-box">
+                    <label for="msg">Wiadomość:</label>
+                    <textarea name="msg" id="msg" required></textarea>
+                </div>
+
+                <button class="form-btn">Wyślij</button>
+
+            </form>
+            <h2>Tutaj nas znajdziesz</h2>
+            <div class="google-map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2559.8464163829562!2d19.8945977!3d50.089162300000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47165a32728962db%3A0x4344067c5fa03761!2sJasnog%C3%B3rska%202%2C%2031-358%20Krak%C3%B3w!5e0!3m2!1spl!2spl!4v1685102122221!5m2!1spl!2spl"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="popup">
+        <p class="popup-text">Wiadomość została przesłana <i class="fa-regular fa-circle-check"></i></p>
+    </div>
+
+    <!-- @includes 'footer.kit' -->
+    <script src="dist/js/contact.min.js"></script>
+</body>
+
+</html>
